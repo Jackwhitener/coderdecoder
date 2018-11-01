@@ -9,5 +9,9 @@ class My_test < Minitest::Test
 		func = 0
 		assert_equal("f", code(message,func))
 	end
-	
+	def test_for_three_letters
+		message = "abc"
+		func = 0
+		assert_equal("fgh", code(message,func))
+	end
 end
