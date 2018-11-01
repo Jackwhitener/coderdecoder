@@ -14,4 +14,8 @@ class My_test < Minitest::Test
 		func = 0
 		assert_equal("fgh", code(message,func))
 	end
+	def test_for_decoder
+		message = "fgh"
+		func = 1
+		assert_equal("abc", code(message,func))
 end
