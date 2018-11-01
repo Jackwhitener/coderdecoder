@@ -4,24 +4,27 @@ def code(message)
 		message.each do |letter|
 			letter = letter.succ!
 		end
-		message.each do |letter|
-			letter.delete_prefix("a")
-		end
+	end
+	message.each do |letter|
+		letter.delete_prefix("a")
 	end
 	return message.join
 end
 def decode(message)
+	arr = []
 	message = message.split(//)
 	21.times do
 		message.each do |letter|
 			# puts "active letter: #{letter}"
 			letter = letter.succ!
 		end
-		message.each do |letter|
-			letter = letter.delete_prefix("a")
-			puts letter
-		end
-		puts message
+		p arr
 	end
-	return message.join
+	message.each do |letter|
+		# puts "Letter before delete_prefix #{letter}"
+		letter = letter.delete_prefix("a")
+		# puts "Letter after delete_prefix #{letter}"
+		arr << letter
+	end
+	return arr.join
 end
