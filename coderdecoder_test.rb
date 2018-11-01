@@ -6,14 +6,14 @@ class My_test < Minitest::Test
 	end
 	def test_for_first_letter
 		message = "a"
-		assert_equal("f", code(message,func))
+		assert_equal("f", code(message))
 	end
 	def test_for_three_letters
 		message = "abc"
-		assert_equal("fgh", code(message,func))
+		assert_equal("fgh", code(message))
 	end
 	def test_for_decoder
 		message = "fgh"
-		assert_equal("abc", decode(message,func))
+		assert_equal("abc", decode(message))
 	end
 end
