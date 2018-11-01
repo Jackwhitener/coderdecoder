@@ -4,6 +4,10 @@ def code(message)
 		message.each do |letter|
 			if letter == " "
 				# puts " "
+			elsif letter == ","
+			elsif letter == "."
+			elsif letter == "!"
+			elsif letter == "?"
 			else
 			letter = letter.succ!
 		end
@@ -20,6 +24,10 @@ def decode(message)
 	21.times do
 		message.each do |letter|
 			if letter == " "
+			elsif letter == ","
+			elsif letter == "."
+			elsif letter == "!"
+			elsif letter == "?"
 			# puts " "
 			else
 			# puts "active letter: #{letter}"
@@ -30,9 +38,10 @@ def decode(message)
 		# p arr
 	end
 	message.each do |letter|
-		p arr
+		# p arr
 		# puts "Letter before delete_prefix #{letter}"
 		letter = letter.delete_prefix("a")
+		letter = letter.delete_prefix("A")
 		# puts "Letter after delete_prefix #{letter}"
 		arr << letter
 	end
