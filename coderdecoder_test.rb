@@ -20,6 +20,10 @@ class My_test < Minitest::Test
 		message = "Hello, this is a test message!"
 		assert_equal("Mjqqt, ymnx nx f yjxy rjxxflj!", code(message))
 	end
+	def test_for_error_message
+		message = "!@#$%^&"
+		assert_equal("Error: Invalid Character Detected.", code(message))
+	end
 	def test_for_decoder
 		message = "fgh"
 		assert_equal("abc", decode(message))
