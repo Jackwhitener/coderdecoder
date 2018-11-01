@@ -18,4 +18,5 @@ class My_test < Minitest::Test
 		message = "fgh"
 		func = 1
 		assert_equal("abc", code(message,func))
+	end
 end
