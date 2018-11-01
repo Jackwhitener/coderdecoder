@@ -2,7 +2,11 @@ def code(message)
 	message = message.split(//)
 	5.times do
 		message.each do |letter|
+			if letter == " "
+				puts " "
+			else
 			letter = letter.succ!
+		end
 		end
 	end
 	message.each do |letter|
