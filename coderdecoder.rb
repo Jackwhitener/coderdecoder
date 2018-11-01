@@ -19,15 +19,21 @@ def decode(message)
 	message = message.split(//)
 	21.times do
 		message.each do |letter|
+			if letter == " "
+			puts " "
+			else
 			# puts "active letter: #{letter}"
 			letter = letter.succ!
+			p letter
 		end
-		p arr
+		end
+		# p arr
 	end
 	message.each do |letter|
-		# puts "Letter before delete_prefix #{letter}"
+		p arr
+		puts "Letter before delete_prefix #{letter}"
 		letter = letter.delete_prefix("a")
-		# puts "Letter after delete_prefix #{letter}"
+		puts "Letter after delete_prefix #{letter}"
 		arr << letter
 	end
 	return arr.join

@@ -22,6 +22,6 @@ class My_test < Minitest::Test
 	end
 	def test_for_real_message_decoded
 		message = "fuuqjx yt fuuqjx hwzxy yt hwzxy"
-		assert_equal("apples to apples crust to crust", code(message))
+		assert_equal("apples to apples crust to crust", decode(message))
 	end
 end
