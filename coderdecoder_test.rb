@@ -1,5 +1,5 @@
 require "minitest/autorun"
-require_relative "random_pairs.rb"
+require_relative "coderdecoder.rb"
 class My_test < Minitest::Test
 	def test1
 		assert_equal(1,1)
