@@ -25,8 +25,16 @@ class My_test < Minitest::Test
 		assert_equal("Error: Invalid Character Detected.", code(message))
 	end
 	def test_for_decoder
-		message = "fgh"
-		assert_equal("abc", decode(message))
+		message = "f"
+		assert_equal("a", decode(message))
+	end
+	def test_for_m
+		message = "m"
+		assert_equal("h", decode(message))
+	end
+	def test_for_two
+		message = "fg"
+		assert_equal("ab", decode(message))
 	end
 	def test_for_real_message_decoded
 		message = "fuuqjx yt fuuqjx hwzxy yt hwzxy"
@@ -35,5 +43,17 @@ class My_test < Minitest::Test
 	def test_for_punctuated_message_decoded
 		message = "Mjqqt, ymnx nx f yjxy rjxxflj!"
 		assert_equal("Hello, this is a test message!", decode(message))
+	end
+	def test_for_invalid_character_decoded
+		message = "*&&%#-"
+		assert_equal("Error: Invalid Character Detected.", code(message))
+	end
+	def test_for_int
+		message = 123
+		assert_equal("123", decode(message))
+	end
+	def test_for_space_int
+		message = 1, 2, 3
+		assert_equal("[1, 2, 3]", decode(message))
 	end
 end
