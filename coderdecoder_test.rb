@@ -46,7 +46,7 @@ class My_test < Minitest::Test
 	end
 	def test_for_invalid_character_decoded
 		message = "*&&%#-"
-		assert_equal("*&&%#-", code(message))
+		assert_equal("*&&%#-", decode(message))
 	end
 	def test_for_int
 		message = 123
