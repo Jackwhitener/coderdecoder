@@ -1,9 +1,10 @@
 
-def code(message)
+def code(message,int)
 	fails = false
 	number = 0
-	acceptableletters = ["a","b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-	acceptableupcase = ["A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "x", "Y", "Z"]
+	numbers = ("0".."9").to_a
+	acceptableletters = ("a".."z").to_a
+	acceptableupcase =  ("A".."Z").to_a
 	arr = []
 	if message.class != String
 		message = message.to_s
@@ -12,51 +13,54 @@ def code(message)
 		message.each do |letter|
 			if acceptableletters.include? letter
 				number = acceptableletters.index(letter)
-				letter = acceptableletters[number + 5]
+				letter = acceptableletters[number + int]
 				arr << letter
 			elsif acceptableupcase.include? letter
 				number = acceptableupcase.index(letter)
-				letter = acceptableupcase[number + 5]
+				letter = acceptableupcase[number + int]
+				arr << letter
+			elsif numbers.include? letter
+				number = numbers.index(letter)
+				letter = numbers[number + int]
 				arr << letter
 			else
 				# fails = true
 				arr << letter
 			end
 		end
-	if fails == false
 		return arr.join
-	else
-		return "Error: Invalid Character Detected."
-	end
-
 end
-def decode(message)
+def decode(message,int)
 	fails = false
-	number = 0 
-	acceptablepunc = ["[", "]",",", ".", "?", "!", "(", ")", ";", ":", " ", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
-	acceptableletters = ["a","b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-	acceptableupcase = ["A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "x", "Y", "Z"]
+	number = 0
+	numbers = ("0".."9").to_a
+	acceptableletters = ("a".."z").to_a
+	acceptableupcase =  ("A".."Z").to_a
 	arr = []
 	if message.class != String
 		message = message.to_s
 	end
 	# puts message
+	# puts int
 	message = message.split(//)
 		message.each do |letter|
 			if acceptableletters.include? letter
+				puts "Acceptable letter: #{letter}"
 				number = acceptableletters.index(letter)
-				letter = acceptableletters[number - 5]
+				puts "Number: #{number}"
+				letter = acceptableletters[number - int]
+				puts "Letter now: #{letter}"
 				arr << letter
-				fails = false
 			elsif acceptableupcase.include? letter
 				number = acceptableupcase.index(letter)
-				letter = acceptableupcase[number - 5]
+				letter = acceptableupcase[number - int]
 				arr << letter
-				fails = false
+			elsif numbers.include? letter
+				number = numbers.index(letter)
+				letter = numbers[number - int]
+				arr << letter
 			else
 				arr << letter
-				# puts "Failure. Bad character detected: #{letter}"
-				# fails = true
 			end
 		end
 		return arr.join
