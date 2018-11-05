@@ -22,7 +22,7 @@ class My_test < Minitest::Test
 	end
 	def test_for_error_message
 		message = "!@#$%^&"
-		assert_equal("Error: Invalid Character Detected.", code(message))
+		assert_equal("!@#$%^&", code(message))
 	end
 	def test_for_decoder
 		message = "f"
@@ -46,7 +46,7 @@ class My_test < Minitest::Test
 	end
 	def test_for_invalid_character_decoded
 		message = "*&&%#-"
-		assert_equal("Error: Invalid Character Detected.", code(message))
+		assert_equal("*&&%#-", code(message))
 	end
 	def test_for_int
 		message = 123

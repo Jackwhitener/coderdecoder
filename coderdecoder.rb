@@ -2,7 +2,6 @@
 def code(message)
 	fails = false
 	number = 0
-	acceptablepunc = [",", ".", "?", "!", "(", ")", ";", ":", " ", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 	acceptableletters = ["a","b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 	acceptableupcase = ["A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "x", "Y", "Z"]
 	arr = []
@@ -11,9 +10,7 @@ def code(message)
 	end
 	message = message.split(//)
 		message.each do |letter|
-			if acceptablepunc.include? letter
-				arr << letter
-			elsif acceptableletters.include? letter
+			if acceptableletters.include? letter
 				number = acceptableletters.index(letter)
 				letter = acceptableletters[number + 5]
 				arr << letter
@@ -22,7 +19,8 @@ def code(message)
 				letter = acceptableupcase[number + 5]
 				arr << letter
 			else
-				fails = true
+				# fails = true
+				arr << letter
 			end
 		end
 	if fails == false
@@ -42,13 +40,10 @@ def decode(message)
 	if message.class != String
 		message = message.to_s
 	end
-	puts message
+	# puts message
 	message = message.split(//)
 		message.each do |letter|
-			if acceptablepunc.include? letter
-				arr << letter
-				fails = false
-			elsif acceptableletters.include? letter
+			if acceptableletters.include? letter
 				number = acceptableletters.index(letter)
 				letter = acceptableletters[number - 5]
 				arr << letter
@@ -59,13 +54,10 @@ def decode(message)
 				arr << letter
 				fails = false
 			else
-				puts "Failure. Bad character detected: #{letter}"
-				fails = true
+				arr << letter
+				# puts "Failure. Bad character detected: #{letter}"
+				# fails = true
 			end
 		end
-	if fails == true
-		return "Error: Invalid Character Detected."
-	elsif fails == false
 		return arr.join
-	end
 end
