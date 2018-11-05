@@ -30,11 +30,11 @@ def decode(message)
 	message = message.split(//)
 	21.times do
 		message.each do |letter|
-			if letter == " "
-			elsif letter == ","
-			elsif letter == "."
-			elsif letter == "!"
-			elsif letter == "?"
+			if acceptablepunc.include? letter
+			elsif acceptableletters.include? letter
+			letter = letter.succ!
+			elsif acceptableupcase.include? letter
+			letter = letter.succ!
 			# puts " "
 			else
 			# puts "active letter: #{letter}"
