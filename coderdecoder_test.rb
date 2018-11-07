@@ -79,4 +79,9 @@ class My_test < Minitest::Test
 		int = 10
 		assert_equal("abc", decode(message, int))
 	end
+	def test_for_timenowday
+		message = "Applesauce"
+		int = Time.now.day
+		assert_equal("This one's supposed to fail.", decode(message, int))
+	end
 end
