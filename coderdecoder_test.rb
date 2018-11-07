@@ -77,6 +77,6 @@ class My_test < Minitest::Test
 	def test_for_decoding_farther
 		message = "klm"
 		int = 10
-		asert_equal("abc", code(message, int))
+		assert_equal("abc", decode(message, int))
 	end
 end

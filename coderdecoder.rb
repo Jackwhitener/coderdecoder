@@ -45,11 +45,8 @@ def decode(message,int)
 	message = message.split(//)
 		message.each do |letter|
 			if acceptableletters.include? letter
-				puts "Acceptable letter: #{letter}"
 				number = acceptableletters.index(letter)
-				puts "Number: #{number}"
 				letter = acceptableletters[number - int]
-				puts "Letter now: #{letter}"
 				arr << letter
 			elsif acceptableupcase.include? letter
 				number = acceptableupcase.index(letter)
