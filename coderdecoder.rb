@@ -2,9 +2,10 @@
 def code(message,int)
 	fails = false
 	number = 0
-	numbers = ("0".."9").to_a
-	acceptableletters = ("a".."z").to_a
-	acceptableupcase =  ("A".."Z").to_a
+	homeontherange = [("a".."z").to_a, ("A".."Z").to_a, ("0".."9").to_a]
+	acceptableletters = homeontherange[0]
+	acceptableupcase =  homeontherange[1]
+	numbers = homeontherange[2]
 	arr = []
 	if message.class != String
 		message = message.to_s
@@ -24,7 +25,6 @@ def code(message,int)
 				letter = numbers[number + int]
 				arr << letter
 			else
-				# fails = true
 				arr << letter
 			end
 		end
@@ -40,8 +40,6 @@ def decode(message,int)
 	if message.class != String
 		message = message.to_s
 	end
-	# puts message
-	# puts int
 	message = message.split(//)
 		message.each do |letter|
 			if acceptableletters.include? letter
