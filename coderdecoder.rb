@@ -1,6 +1,9 @@
 
 def code(message,int)
-	fails = false
+	if int == 26 || int == 0
+		int = 5
+	end
+
 	number = 0
 	homeontherange = [("a".."z").to_a, ("A".."Z").to_a, ("0".."9").to_a]
 	acceptableletters = homeontherange[0]
